@@ -20,11 +20,12 @@
 		<ul>
 			<li>User goes to MLSSoccer.com</li>
 			<li>The user scrolls through the list of current articles on the site</li>
-			<li>The user clicks on the article they wish to read and potentially comment on</li>
+			<li>The user sees an article about their favorite team</li>
+			<li>The user clicks the headline of the article in question</li>
 			<li>The site retrieves and displays the article</li>
 			<li>The user reads the article, and decides to comment</li>
-			<li>The user either scrolls to the comment section, or pushes the comment button to jump there</li>
-			<li>User selects the "Login" button</li>
+			<li>The user scrolls to the comment section</li>
+			<li>The user selects the "Login" button</li>
 			<li>The site prompts a user with a window to either log in to their profile, or create a new one</li>
 			<li>The user either:
 				<ul>
@@ -37,6 +38,30 @@
 			<li>The user selects the "Post" button</li>
 			<li>The site posts the comment</li>
 		</ul>
-		<h2></h2>
+		<h2>Use Case 2: Reading through the comments, and posting directly to someone else's comment</h2>
+		<ul>
+			<li>User goes to MLSSoccer.com</li>
+			<li>The user goes to the headline of the article contaning the comment section they wish to read</li>
+			<li>The user selects the article</li>
+			<li>The site retrieves and displays the article</li>
+			<li>The user jumps to the comment section by clicking the "comment" button on the article</li>
+			<li>The user reads through the comments, and decides to respond to one</li>
+			<li>The user selects the "Login" button</li>
+			<li>The site prompts a user with a window to either log in to their profile, or create a new one</li>
+			<li>The user either:
+				<ul>
+					<li>Logs in to their existing profile with a username and password</li>
+					<li>Creates a new profile with a new username and new password</li>
+				</ul>
+			</li>
+			<li>The site uses this information to log in the user, creating a new user profile if necessary</li>
+
+			<li>The user selects the "Reply" option on the comment to which they wish to respond.</li>
+			<li>The site presents a box for entering a response, and a "Post" button</li>
+			<li>The user enters their response</li>
+			<li>The user selects the "Post" button</li>
+			<li>The site posts the response underneath the original comment</li>
+		</ul>
+		<h2>Conceptual Schema</h2>
 	</body>
 </html>
