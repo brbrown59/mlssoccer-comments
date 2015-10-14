@@ -14,52 +14,41 @@
 			They are most likely to be drawn into reading and commenting articles about their favorite team, so most other commentators they interact with will be fans of the team, as well.
 		</p>
 
-		<p>The persona is an American under the age of 35, likely with immigrant roots, who enjoys soccer (and one team in particular) and wishes to read more about their favorite team and discuss things with other fans of said team.
-		They are very comfortable mobile users.</p>
-		<h2>Use Case: Reading an article about a team, and posting a comment in response</h2>
+		<p>The persona (Bob) is an American in his mid-20s, the son of an immigrant family, who enjoys soccer (and the San Jose Earthquakes in particular) and wishes to read more about his favorite team and discuss things with other Earthquakes fans.
+		Bob is very mobile-savvy and usually views the site with his smartphone</p>
+		<h2>Use Case: Bob goes to read an article about the San Jose Earthquakes, and post a comment about it</h2>
 		<ul>
-			<li>User goes to MLSSoccer.com</li>
-			<li>The user scrolls through the list of current articles on the site</li>
-			<li>The user sees an article about their favorite team</li>
-			<li>The user clicks the headline of the article in question</li>
+			<li>Bob goes to MLSSoccer.com</li>
+			<li>Bob scrolls through the list of current articles on the site</li>
+			<li>Bob sees an article about his favorite team, the Earthquakes</li>
+			<li>Bob selects the headline of the article in question</li>
 			<li>The site retrieves and displays the article</li>
-			<li>The user reads the article, and decides to comment</li>
-			<li>The user scrolls to the comment section</li>
-			<li>The user selects the "Login" button</li>
+			<li>Bob reads the article, and decides to comment</li>
+			<li>Bob scrolls to the comment section</li>
+			<li>Bob selects the "Login" button</li>
 			<li>The site prompts a user with a window to either log in to their profile, or create a new one</li>
-			<li>The user either:
-				<ul>
-					<li>Logs in to their existing profile with a username and password</li>
-					<li>Creates a new profile with a new username and new password</li>
-				</ul>
-			</li>
-			<li>The site uses this information to log in the user, creating a new user profile if necessary</li>
-			<li>The user enters the message they wish to post to the comment board into the given field</li>
-			<li>The user selects the "Post" button</li>
+			<li>Bob has a profile, so he uses his user name and password to log in</li>
+			<li>The site uses this information to log in Bob</li>
+			<li>Bob enters the message they wish to post to the comment board into the given field</li>
+			<li>Bob selects the "Post" button</li>
 			<li>The site posts the comment</li>
 		</ul>
-		<h2>Use Case 2: Reading through the comments, and posting directly to someone else's comment</h2>
+		<h2>Use Case 2: Bob wants to read through the comments on an article he viewed previously, and respond to someone else's comment</h2>
 		<ul>
-			<li>User goes to MLSSoccer.com</li>
-			<li>The user goes to the headline of the article contaning the comment section they wish to read</li>
-			<li>The user selects the article</li>
+			<li>Bob goes to MLSSoccer.com</li>
+			<li>Bob goes to the headline of the article he read previously</li>
+			<li>Bob selects the article</li>
 			<li>The site retrieves and displays the article</li>
-			<li>The user jumps to the comment section by clicking the "comment" button on the article</li>
-			<li>The user reads through the comments, and decides to respond to one</li>
-			<li>The user selects the "Login" button</li>
+			<li>Bob jumps to the comment section by clicking the "comment" button on the bottom of the article</li>
+			<li>Bob reads through the comments, and decides to respond to one</li>
+			<li>Bob selects the "Login" button</li>
 			<li>The site prompts a user with a window to either log in to their profile, or create a new one</li>
-			<li>The user either:
-				<ul>
-					<li>Logs in to their existing profile with a username and password</li>
-					<li>Creates a new profile with a new username and new password</li>
-				</ul>
-			</li>
-			<li>The site uses this information to log in the user, creating a new user profile if necessary</li>
-
-			<li>The user selects the "Reply" option on the comment to which they wish to respond.</li>
+			<li>Bob has a profile, so he uses his user name and password to log in</li>
+			<li>The site uses this information to log in Bob</li>
+			<li>Bob selects the "Reply" option on the comment to which he wants to respond</li>
 			<li>The site presents a box for entering a response, and a "Post" button</li>
-			<li>The user enters their response</li>
-			<li>The user selects the "Post" button</li>
+			<li>Bob enters his response</li>
+			<li>Bob selects the "Post" button</li>
 			<li>The site posts the response underneath the original comment</li>
 		</ul>
 		<h2>Conceptual Schema</h2>
