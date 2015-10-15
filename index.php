@@ -52,5 +52,32 @@
 			<li>The site posts the response underneath the original comment</li>
 		</ul>
 		<h2>Conceptual Schema</h2>
+		<h3>Entity 1: User</h3>
+		<h4>Attributes</h4>
+		<ul>
+			<li>User Name</li>
+			<li>User Profile</li>
+		</ul>
+		<h4>Relationships</h4>
+		<p>Many users can make many comments</p>
+		<h3>Entity 2: Article</h3>
+		<h4>Attributes</h4>
+		<ul>
+			<li>Title</li>
+			<li>Author</li>
+			<li>Text</li>
+			<li>Posted Comments</li>
+		</ul>
+		<h4>Relationships</h4>
+		<p>One article can have many comments</p>
+		<h3>Entity 3: Comment</h3>
+		<h4>Attributes</h4>
+		<ul>
+			<li>Author</li>
+			<li>Article</li>
+			<li>Time Posted</li>
+			<li>Number of Likes/Dislikes</li>
+		</ul>
+		<h4>Relationships</h4>
 	</body>
 </html>
