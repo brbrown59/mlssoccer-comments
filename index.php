@@ -71,8 +71,8 @@
 		<h4>Attributes</h4>
 		<ul>
 			<li>Author</li>
-			<li>Article</li>
 			<li>Time Posted</li>
+			<li>Text</li>
 		</ul>
 	</body>
 </html>
