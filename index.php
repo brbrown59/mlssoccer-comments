@@ -74,5 +74,7 @@
 			<li>Time Posted</li>
 			<li>Text</li>
 		</ul>
+		<h2>Entity Relationship Diagram</h2>
+
 	</body>
 </html>
