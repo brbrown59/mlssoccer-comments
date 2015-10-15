@@ -57,7 +57,7 @@
 			<li>User Profile</li>
 		</ul>
 		<h4>Relationships</h4>
-		<p>Many users can make many comments</p>
+		<p>One user can make many comments</p>
 		<h3>Entity 2: Article</h3>
 		<h4>Attributes</h4>
 		<ul>
@@ -74,6 +74,5 @@
 			<li>Article</li>
 			<li>Time Posted</li>
 		</ul>
-		<h4>Relationships</h4>
 	</body>
 </html>
