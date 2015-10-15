@@ -6,16 +6,14 @@
 	</head>
 	<body>
 		<h2>Persona</h2>
-		<p>The user of the commenting feature will almost certainly be a fan of the sport of soccer - and of Major League Soccer in particular - and would likely have some degree of knowledge in the sport.
-			They would likely be American (either by birth or current residence), as MLS is an American league.
-			American soccer fans tend to be teens and young adults (millenials) and often have roots in a country where the sport is more widespread (such as immigrants or first generation Americans).
-			Younger generations, in general, are typically more comfortable around technology, and heavily use mobile devices such as smart phones in particular.
+		<p>The user of the commenting feature is Bob.  Bob is a fan of the sport of soccer - and of Major League Soccer in particular - and has some degree of knowledge in the sport.
+			Bob is American; as MLS is an American league, most of its fans are from that country.
+			American soccer fans tend to be teens and young adults (millenials) and often have roots in a country where the sport is more widespread (such as immigrants or first generation Americans): Bob is in his mid-20s and American-born, but the son of an immigrant family.
+			Younger generations, in general, are typically more comfortable around technology, and heavily use mobile devices such as smart phones in particular.  Bob himself uses an iPhone 6.
 			Someone who comments on the site would be looking to discuss the sport (and the contents of a given article) with other fans.
-			They are most likely to be drawn into reading and commenting articles about their favorite team, so most other commentators they interact with will be fans of the team, as well.
+			Bob is most likely to be drawn into reading and commenting articles about his favorite team (the San Jose Earthquakes), so most other commentators he interacts with will be fans of the team, as well.
 		</p>
 
-		<p>The persona (Bob) is an American in his mid-20s, the son of an immigrant family, who enjoys soccer (and the San Jose Earthquakes in particular) and wishes to read more about his favorite team and discuss things with other Earthquakes fans.
-		Bob is very mobile-savvy and usually views the site with his smartphone</p>
 		<h2>Use Case: Bob goes to read an article about the San Jose Earthquakes, and post a comment about it</h2>
 		<ul>
 			<li>Bob goes to MLSSoccer.com</li>
@@ -66,7 +64,6 @@
 			<li>Title</li>
 			<li>Author</li>
 			<li>Text</li>
-			<li>Posted Comments</li>
 		</ul>
 		<h4>Relationships</h4>
 		<p>One article can have many comments</p>
@@ -76,7 +73,6 @@
 			<li>Author</li>
 			<li>Article</li>
 			<li>Time Posted</li>
-			<li>Number of Likes/Dislikes</li>
 		</ul>
 		<h4>Relationships</h4>
 	</body>
