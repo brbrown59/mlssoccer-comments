@@ -75,6 +75,6 @@
 			<li>Text</li>
 		</ul>
 		<h2>Entity Relationship Diagram</h2>
-		<img src="https://bootcamp-coders.cnm.edu/~bbrown52/mlssoccer-comments/images/entity-relationship-diagram.svg" alt="Entity Relationship Diagram" />
+		<img src="images/entity-relationship-diagram.svg" alt="Entity Relationship Diagram" />
 	</body>
 </html>
