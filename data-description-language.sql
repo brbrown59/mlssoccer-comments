@@ -1,0 +1,34 @@
+DROP TABLE IF EXISTS comment;
+DROP TABLE IF EXISTS article;
+DROP TABLE IF EXISTS mlsuser;
+
+CREATE TABLE mlsUser(
+	userId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+	username VARCHAR(64) NOT NULL,
+	userProfile VARCHAR(128),
+	UNIQUE(username),
+	PRIMARY KEY(userId)
+);
+
+CREATE TABLE article(
+	articleId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+	title VARCHAR(128) NOT NULL,
+	author VARCHAR(256) NOT NULL,
+	text VARCHAR(256),
+	INDEX (author),
+	INDEX (title),
+	PRIMARY KEY(articleId)
+);
+
+CREATE TABLE comment(
+	commentId INT UNSIGNED AUTO_INCREMENT NOT NULL,
+	text VARCHAR(256) NOT NULL,
+	timePosted DATETIME NOT NULL,
+	userId INT UNSIGNED NOT NULL,
+	articleId INT UNSIGNED NOT NULL,
+	INDEX(userId),
+	INDEX(articleId),
+	FOREIGN KEY(userId) REFERENCES mlsUser(userId),
+	FOREIGN KEY(articleId) REFERENCES article(articleId),
+	PRIMARY KEY(commentId)
+);
