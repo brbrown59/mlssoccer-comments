@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS mlsUser;
 CREATE TABLE mlsUser(
 	userId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	username VARCHAR(64) NOT NULL,
-	userProfile VARCHAR(128),
+	userProfile VARCHAR(256),
 	UNIQUE(username),
 	PRIMARY KEY(userId)
 );
@@ -14,7 +14,7 @@ CREATE TABLE article(
 	articleId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	title VARCHAR(128) NOT NULL,
 	author VARCHAR(64) NOT NULL,
-	text VARCHAR(65000),
+	text VARCHAR(65300),
 	INDEX (author),
 	INDEX (title),
 	PRIMARY KEY(articleId)
