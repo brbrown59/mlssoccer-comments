@@ -5,7 +5,7 @@ DROP TABLE IF EXISTS mlsUser;
 CREATE TABLE mlsUser(
 	userId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 	username VARCHAR(64) NOT NULL,
-	userProfile VARCHAR(256),
+	avatar VARCHAR(256),
 	UNIQUE(username),
 	PRIMARY KEY(userId)
 );

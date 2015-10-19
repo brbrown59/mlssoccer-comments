@@ -54,7 +54,7 @@
 		<h4>Attributes</h4>
 		<ul>
 			<li>User Name</li>
-			<li>User Profile</li>
+			<li>Avatar</li>
 		</ul>
 		<h4>Relationships</h4>
 		<p>One user can make many comments</p>
