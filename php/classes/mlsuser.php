@@ -9,7 +9,7 @@
  *
  * @author Bradley Brown <tall.white.ninja@gmail.com>
  */
-class mlsUser {
+class MlsUser {
 	/**
 	 *  id for this user; this is the primary key
 	 * @var int $userId
@@ -100,7 +100,7 @@ class mlsUser {
 	/*
 	 * accessor method for username
 	 *
-	 * @return string value of user Id
+	 * @return string value of username
 	 */
 	public function getUsername(){
 		return($this->username);
@@ -129,4 +129,3 @@ class mlsUser {
 		$this->username = $newUsername;
 	}
 }
-?>
