@@ -39,4 +39,33 @@ class Article{
 	public function getArticleId(){
 		return ($this->articleId);
 	}
+
+	/*
+	 * mutator method for the articleId
+	 *
+	 * @param mixed $newArticleId value of article ID
+	 * @throws InvalidArgumentException if $newArticleId is not an integer
+	 * @throws RangeException if $newArticleId is not positive
+	 */
+	public function setArticleId($newArticleId){
+		//base case; if the new ArticleId is null, this is a new article with no mySQL ID
+		if($newArticleId === null){
+			$this->articleId = null;
+			return;
+		}
+
+		//verify that the new ArticleId is a valid integer
+		$newArticleId = filter_var($newArticleId, FILTER_VALIDATE_INT);
+		if ($newArticleId === false){
+			throw(new InvalidArgumentException("Article ID is not a valid integer"));
+		}
+
+		//verify that the new ID is positive
+		if ($newArticleId <= 0){
+			throw(new RangeException("Article ID is not positive"));
+		}
+
+		//convert the new ID to an integer and store
+		$this->articleId = intval($newArticleId);
+	}
 }
