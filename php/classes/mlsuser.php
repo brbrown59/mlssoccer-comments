@@ -67,7 +67,7 @@ class mlsUser {
 	/*
 	 * accessor method for avatar
 	 *
-	 * @return string value of avatar
+	 * @return string value of avatar URL
 	 */
 	public function getAvatar(){
 		return($this->avatar);
@@ -128,3 +128,4 @@ class mlsUser {
 		$this->username = $newUsername;
 	}
 }
+?>
