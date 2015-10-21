@@ -4,8 +4,8 @@
  *
  * A user profile for the comments of MLSsoccer.com
  *
- * This is the basic profile for any user of MLSsoccer.com's comment section
- * It contains the basic public details viewable to other commentors
+ * This is the class for a basic profile for any user of MLSsoccer.com's comment section
+ * It contains the basic details such as the user's username and avatar
  *
  * @author Bradley Brown <tall.white.ninja@gmail.com>
  */
@@ -15,13 +15,11 @@ class mlsUser {
 	 * @var int $userId
 	 */
 	private $userId;
-
 	/**
 	 *  the photographic avatar of the user, as a URL
 	 * @var string $avatar
 	 */
 	private $avatar;
-
 	/**
 	 *  the username of this particular user
 	 * @var string $username
@@ -45,7 +43,7 @@ class mlsUser {
 	 * @throws RangeException if $newUserId is not positive
 	 */
 	public function setUserId($newUserId){
-		//base case: it is a new user, and there is no mySQL ID assigned as of yet
+		//base case: if the new user ID is null, this is a new user, and there is no mySQL ID assigned as of yet
 		if($newUserId === null){
 			$this->userId = null;
 			return;
@@ -79,7 +77,7 @@ class mlsUser {
 	 * mutator method for avatar
 	 *
 	 * @param string $newAvatar new value of avatar, as a URL
-	 * @throws InvalidArgumentException if $newAvatar is not a string or insecure
+	 * @throws InvalidArgumentException if $newAvatar is not in URL form, or insecure
 	 * @throws RangeException if $newAvatar is > 256 characters
 	 */
 	public function setAvatar($newAvatar){
@@ -90,7 +88,7 @@ class mlsUser {
 		if(empty($newAvatar === true)){
 			throw(new InvalidArgumentException("Avatar URL is either empty or insecure"));
 		}
-		//verify that the new avatar value will fit in the database
+		//verify that the new avatar value will fit in the database, throw exception if it does not
 		if(strlen($newAvatar) > 256){
 			throw(new RangeException("Avatar URL is too large"));
 		}
@@ -122,13 +120,11 @@ class mlsUser {
 		if(empty($newUsername === true)){
 			throw(new InvalidArgumentException("Username is either empty or insecure"));
 		}
-		//verify that the username will fit in the database
+		//verify that the username will fit in the database, throw exception if it does not
 		if(strlen($newUsername) > 64){
 			throw(new RangeException("Username is too large"));
 		}
 		//store the new username
 		$this->username = $newUsername;
 	}
-
-
 }
