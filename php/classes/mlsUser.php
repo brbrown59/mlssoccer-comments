@@ -47,7 +47,7 @@ class mlsUser {
 		if($newUserId === null){
 			$this->userId = null;
 			return;
-		}
+		}//temporary
 
 		//verify that the ID is a valid integer
 		$newUserId = filter_var($newUserId, FILTER_VALIDATE_INT);
