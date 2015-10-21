@@ -76,6 +76,29 @@ class mlsUser {
 	}
 
 	/*
+	 * mutator method for avatar
+	 *
+	 * @param string $newAvatar new value of avatar, as a URL
+	 * @throws InvalidArgumentException if $newAvatar is not a string or insecure
+	 * @throws RangeException if $newAvatar is > 256 characters
+	 */
+	public function setAvatar($newAvatar){
+		//verify that the new avatar URL is secure
+		$newAvatar = trim($newAvatar);
+		$newAvatar = filter_var($newAvatar, FILTER_SANITIZE_URL);
+		//reject and throw exception if one of the above failed, or if empty string entered
+		if(empty($newAvatar === true)){
+			throw(new InvalidArgumentException("Avatar URL is either empty or insecure"));
+		}
+		//verify that the new avatar value will fit in the database
+		if(strlen($newAvatar) > 256){
+			throw(new RangeException("Avatar URL is too large"));
+		}
+		//store the new avatar
+		$this->avatar = $newAvatar;
+	}
+
+	/*
 	 * accessor method for username
 	 *
 	 * @return string value of user Id
