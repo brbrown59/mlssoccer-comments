@@ -132,4 +132,37 @@ class Article{
 		//store the new username
 		$this->text = $newText;
 	}
+
+	/**
+	 * accessor method for the article title
+	 *
+	 * @return string value of the title
+	 **/
+	public function getTitle(){
+		return($this->title);
+	}
+
+	/**
+	 * mutator method for the article title
+	 *
+	 * @param string $newTitle value of the new title
+	 * @throws InvalidArgumentException if $newTitle is not a string or insecure
+	 * @throws RangeException if $newTitle is larger than 128 characters
+	 *
+	 **/
+	public function setTitle($newTitle){
+		//verify that the new title is secure
+		$newTitle = trim($newTitle);
+		$newTitle = filter_var($newTitle, FILTER_SANITIZE_STRING);
+		//if the title is empty or insecure, reject and throw an exception
+		if(empty($newTitle === 0)){
+			throw(new InvalidArgumentException("Article title is either empty or insecure"));
+		}
+		//verify that the title will fit in the database; throw an exception if not
+		if(strlen($newTitle > 128)){
+			throw(new RangeException("Article title is too large"));
+		}
+		//if it passed the above, store the new title
+		$this->title = $newTitle;
+	}
 }
