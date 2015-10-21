@@ -82,5 +82,22 @@ class Article{
 	 * mutator method for the author
 	 *
 	 * @param string $newAuthor value of the new author
+	 * @throws InvalidArgumentException if $newAuthor
+	 * @throws RangeException if $newAuthor is greater than 64 characters
 	 */
+	public function setAuthor($newAuthor){
+		//verify that new author is secure
+		$newAuthor = trim($newAuthor);
+		$newAuthor = filter_var($newAuthor, FILTER_SANITIZE_STRING);
+		//reject and throw exeception if the above failed
+		if(empty($newAuthor) === false){
+			throw(new InvalidArgumentException("Author name is either empty or insecure"));
+		}
+		//verify that the author name will fit in the database; throw exeption if it does not
+		if(strlen($newAuthor) > 64){
+			throw(new RangeException("Author name is too large"));
+		}
+		//store the new username
+		$this->author = $newAuthor;
+	}
 }
