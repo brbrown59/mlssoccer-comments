@@ -7,7 +7,7 @@
  * It contains the text of the article itself, in addition to the author and title
  *
  * @author Bradley Brown <tall.white.ninja@gmail.com>
- */
+ **/
 
 class Article{
 	/**
@@ -18,24 +18,24 @@ class Article{
 	/**
 	 * the author of the article
 	 * @var string $author
-	 */
+	 **/
 	private $author;
 	/**
 	 * the actual text of the article itself
 	 * @var string $text
-	 */
+	 **/
 	private $text;
 	/**
 	 * the title of the article
 	 * @var string $title
-	 */
+	 **/
 	private $title;
 
 	/**
 	 * accessor method for the articleId
 	 *
 	 * @return mixed value of article Id
-	 */
+	 **/
 	public function getArticleId(){
 		return ($this->articleId);
 	}
@@ -46,7 +46,7 @@ class Article{
 	 * @param mixed $newArticleId value of article ID
 	 * @throws InvalidArgumentException if $newArticleId is not an integer
 	 * @throws RangeException if $newArticleId is not positive
-	 */
+	 **/
 	public function setArticleId($newArticleId){
 		//base case; if the new ArticleId is null, this is a new article with no mySQL ID
 		if($newArticleId === null){
@@ -73,7 +73,7 @@ class Article{
 	 * accessor method for the author
 	 *
 	 * @return string value of author
-	 */
+	 **/
 	public function getAuthor(){
 		return($this->author);
 	}
@@ -82,9 +82,9 @@ class Article{
 	 * mutator method for the author
 	 *
 	 * @param string $newAuthor value of the new author
-	 * @throws InvalidArgumentException if $newAuthor
+	 * @throws InvalidArgumentException if $newAuthor is not a string or insecure
 	 * @throws RangeException if $newAuthor is greater than 64 characters
-	 */
+	 **/
 	public function setAuthor($newAuthor){
 		//verify that new author is secure
 		$newAuthor = trim($newAuthor);
@@ -99,5 +99,37 @@ class Article{
 		}
 		//store the new username
 		$this->author = $newAuthor;
+	}
+
+	/**
+	 * accessor method for the article text
+	 *
+	 * @return string value of text
+	 **/
+	public function getText(){
+		return($this->text);
+	}
+
+	/**mutator method for the article text
+	 *
+	 * @param string $newText the new article text
+	 * @throws InvalidArgumentException if $newText is not a string or insecure
+	 * @throws RangeException if $newText is larger than 65300 characters
+	 **/
+	public function setText($newText){
+		//verify that new author is secure
+		$newText = trim($newText);
+		$newText = filter_var($newText, FILTER_SANITIZE_STRING);
+		//reject and throw exeception if the above failed
+		//empty case is okay
+		if($newText === false){
+			throw(new InvalidArgumentException("Article text is insecure"));
+		}
+		//verify that the article text will fit in the database; throw exeption if it does not
+		if(strlen($newText) > 65300){
+			throw(new RangeException("Article text is too large"));
+		}
+		//store the new username
+		$this->text = $newText;
 	}
 }

@@ -13,24 +13,24 @@ class MlsUser {
 	/**
 	 *  id for this user; this is the primary key
 	 * @var int $userId
-	 */
+	 **/
 	private $userId;
 	/**
 	 *  the photographic avatar of the user, as a URL
 	 * @var string $avatar
-	 */
+	 **/
 	private $avatar;
 	/**
 	 *  the username of this particular user
 	 * @var string $username
-	 */
+	 **/
 	private $username;
 
 	/**
 	 * accessor method for userId
 	 *
 	 * @return mixed value of user Id
-	 */
+	 **/
 	public function getUserId(){
 		return($this->userId);
 	}
@@ -41,7 +41,7 @@ class MlsUser {
 	 * @param mixed $newUserId value of user ID
 	 * @throws InvalidArgumentException if $newUserId is not an integer
 	 * @throws RangeException if $newUserId is not positive
-	 */
+	 **/
 	public function setUserId($newUserId){
 		//base case: if the new user ID is null, this is a new user, and there is no mySQL ID assigned as of yet
 		if($newUserId === null){
@@ -68,7 +68,7 @@ class MlsUser {
 	 * accessor method for avatar
 	 *
 	 * @return string value of avatar URL
-	 */
+	 **/
 	public function getAvatar(){
 		return($this->avatar);
 	}
@@ -79,7 +79,7 @@ class MlsUser {
 	 * @param string $newAvatar new value of avatar, as a URL
 	 * @throws InvalidArgumentException if $newAvatar is not in URL form, or insecure
 	 * @throws RangeException if $newAvatar is > 256 characters
-	 */
+	 **/
 	public function setAvatar($newAvatar){
 		//verify that the new avatar URL is secure
 		$newAvatar = trim($newAvatar);
@@ -101,7 +101,7 @@ class MlsUser {
 	 * accessor method for username
 	 *
 	 * @return string value of username
-	 */
+	 **/
 	public function getUsername(){
 		return($this->username);
 	}
@@ -112,7 +112,7 @@ class MlsUser {
 	 * @param string $newUsername new value of username
 	 * @throws InvalidArgumentException if $newUsername is not a string or insecure
 	 * @throws RangeException if $newUsername is longer than 64 characters
-	 */
+	 **/
 	public function setUsername($newUsername){
 		//verify security of the new username
 		$newUsername = trim($newUsername);
