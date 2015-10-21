@@ -15,16 +15,18 @@ class mlsUser {
 	 * @var int $userId
 	 */
 	private $userId;
-	/**
-	 *  the username of this particular user
-	 * @var string $username
-	 */
-	private $username;
+
 	/**
 	 *  the photographic avatar of the user, in URL form
 	 * @var string $avatar
 	 */
 	private $avatar;
+
+	/**
+	 *  the username of this particular user
+	 * @var string $username
+	 */
+	private $username;
 
 	/*
 	 * accessor method for userId
@@ -37,6 +39,7 @@ class mlsUser {
 
 	/*
 	 * mutator method for user Id
+	 *
 	 * @param mixed $newUserId value of user ID
 	 * @throws InvalidArgumentException if $newUserId is not an integer
 	 * @throws RangeException if $newUserId is not positive
@@ -59,8 +62,17 @@ class mlsUser {
 			throw(new RangeException("User ID is not positive"));
 		}
 
-		//convert the value to integer, and stroe
+		//convert the value to integer, and store
 		$this->userId = $newUserId;
+	}
+
+	/*
+	 * accessor method for avatar
+	 *
+	 * @return string value of avatar
+	 */
+	public function getAvatar(){
+		return($this->avatar);
 	}
 
 	/*
@@ -73,12 +85,26 @@ class mlsUser {
 	}
 
 	/*
-	 * accessor method for avatar
+	 * mutator method for username
 	 *
-	 * @return string value of avatar
+	 * @param string $newUsername new value of username
+	 * @throws InvalidArgumentException if $newUsername is not a string or insecure
+	 * @throws RangeException if $newUsername is longer than 64 characters
 	 */
-	public function getAvatar(){
-		return($this->avatar);
+	public function setUsername($newUsername){
+		//verify security of the new username
+		$newUsername = trim($newUsername);
+		$newUsername = filter_var($newUsername, FILTER_SANITIZE_STRING);
+		//if an empty string is found, or if the input failed one of the above, reject and throw exception
+		if(empty($newUsername === true)){
+			throw(new InvalidArgumentException("Username is either empty or insecure"));
+		}
+		//verify that the username will fit in the database
+		if(strlen($newUsername) > 64){
+			throw(new RangeException("Username is too large"));
+		}
+		//store the new username
+		$this->username = $newUsername;
 	}
 
 
