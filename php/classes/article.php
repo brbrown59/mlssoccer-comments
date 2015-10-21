@@ -110,9 +110,10 @@ class Article{
 		return($this->text);
 	}
 
-	/**mutator method for the article text
+	/**
+	 * mutator method for the article text
 	 *
-	 * @param string $newText the new article text
+	 * @param string $newText value of the new article text
 	 * @throws InvalidArgumentException if $newText is not a string or insecure
 	 * @throws RangeException if $newText is larger than 65300 characters
 	 **/
