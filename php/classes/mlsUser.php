@@ -17,7 +17,7 @@ class mlsUser {
 	private $userId;
 
 	/**
-	 *  the photographic avatar of the user, in URL form
+	 *  the photographic avatar of the user, as a URL
 	 * @var string $avatar
 	 */
 	private $avatar;
@@ -63,7 +63,7 @@ class mlsUser {
 		}
 
 		//convert the value to integer, and store
-		$this->userId = $newUserId;
+		$this->userId = intval($newUserId);
 	}
 
 	/*
