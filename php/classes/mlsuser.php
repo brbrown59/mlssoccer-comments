@@ -86,7 +86,7 @@ class mlsUser {
 		$newAvatar = filter_var($newAvatar, FILTER_SANITIZE_URL);
 		//reject and throw exception if one of the above failed
 		//avatar is not required, so allow the empty case
-		if($newAvatar !== false){
+		if($newAvatar === false){
 			throw(new InvalidArgumentException("Avatar URL is insecure"));
 		}
 		//verify that the new avatar value will fit in the database, throw exception if it does not
