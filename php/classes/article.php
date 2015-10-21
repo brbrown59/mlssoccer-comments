@@ -31,7 +31,7 @@ class Article{
 	 */
 	private $title;
 
-	/*
+	/**
 	 * accessor method for the articleId
 	 *
 	 * @return mixed value of article Id
@@ -40,7 +40,7 @@ class Article{
 		return ($this->articleId);
 	}
 
-	/*
+	/**
 	 * mutator method for the articleId
 	 *
 	 * @param mixed $newArticleId value of article ID
@@ -68,4 +68,19 @@ class Article{
 		//convert the new ID to an integer and store
 		$this->articleId = intval($newArticleId);
 	}
+
+	/**
+	 * accessor method for the author
+	 *
+	 * @return string value of author
+	 */
+	public function getAuthor(){
+		return($this->author);
+	}
+
+	/**
+	 * mutator method for the author
+	 *
+	 * @param string $newAuthor value of the new author
+	 */
 }

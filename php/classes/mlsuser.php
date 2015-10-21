@@ -26,7 +26,7 @@ class MlsUser {
 	 */
 	private $username;
 
-	/*
+	/**
 	 * accessor method for userId
 	 *
 	 * @return mixed value of user Id
@@ -35,7 +35,7 @@ class MlsUser {
 		return($this->userId);
 	}
 
-	/*
+	/**
 	 * mutator method for user Id
 	 *
 	 * @param mixed $newUserId value of user ID
@@ -64,7 +64,7 @@ class MlsUser {
 		$this->userId = intval($newUserId);
 	}
 
-	/*
+	/**
 	 * accessor method for avatar
 	 *
 	 * @return string value of avatar URL
@@ -73,7 +73,7 @@ class MlsUser {
 		return($this->avatar);
 	}
 
-	/*
+	/**
 	 * mutator method for avatar
 	 *
 	 * @param string $newAvatar new value of avatar, as a URL
@@ -97,7 +97,7 @@ class MlsUser {
 		$this->avatar = $newAvatar;
 	}
 
-	/*
+	/**
 	 * accessor method for username
 	 *
 	 * @return string value of username
@@ -106,7 +106,7 @@ class MlsUser {
 		return($this->username);
 	}
 
-	/*
+	/**
 	 * mutator method for username
 	 *
 	 * @param string $newUsername new value of username
