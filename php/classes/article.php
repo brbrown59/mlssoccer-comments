@@ -90,7 +90,7 @@ class Article{
 		$newAuthor = trim($newAuthor);
 		$newAuthor = filter_var($newAuthor, FILTER_SANITIZE_STRING);
 		//reject and throw exeception if the above failed
-		if(empty($newAuthor) === false){
+		if(empty($newAuthor) === true){
 			throw(new InvalidArgumentException("Author name is either empty or insecure"));
 		}
 		//verify that the author name will fit in the database; throw exeption if it does not
@@ -156,7 +156,7 @@ class Article{
 		$newTitle = trim($newTitle);
 		$newTitle = filter_var($newTitle, FILTER_SANITIZE_STRING);
 		//if the title is empty or insecure, reject and throw an exception
-		if(empty($newTitle === 0)){
+		if(empty($newTitle === true)){
 			throw(new InvalidArgumentException("Article title is either empty or insecure"));
 		}
 		//verify that the title will fit in the database; throw an exception if not
