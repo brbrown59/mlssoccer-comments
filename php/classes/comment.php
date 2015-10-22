@@ -38,6 +38,36 @@ class Comment{
 	private $text;
 
 	/**
+	 * Constructor method for a comment
+	 *
+	 * @param mixed $newCommentId value of the Comment Id
+	 * @param int $newArticleId new value of Article Id
+	 * @param int $newUserId new value of User ID
+	 * @param mixed $newTime new value of time as either string, DateTime object, or null for the current time
+	 * @param string $newText new value of the comment text
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings that are too long, or negative integers)
+	 * @throws Exception if some other exception is thrown
+	 **/
+	public function __construct($newCommentId, $newArticleId, $newUserId, $newTime, $newText){
+		//call the class's mutators to set the given falues
+		try{
+			$this->setCommentId($newCommentId);
+			$this->setArticleId($newArticleId);
+			$this->setUserId($newUserId);
+			$this->setTime($newTime);
+			$this->setText($newText);
+			//catch the exceptions that could be thrown by the mutators, including the generic exception
+		} catch(InvalidArgumentException $invalidArgument){
+			throw(new InvalidArgumentException ($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range){
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception){
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/**
 	 * accessor method for the comment Id
 	 *
 	 * @return mixed value of comment Id
@@ -150,6 +180,7 @@ class Comment{
 	 * @param mixed $newTime new value of time as either string, DateTime object, or null for the current time
 	 * @throws InvalidArgumentException if $newTime is not a valid object or string
 	 * @throws RangeException if $newTime is a time and date that does not exist
+	 * @throws Exception if some other exception is thrown
 	 **/
 	public function setTime($newTime){
 		//base case: if the time is null, assign to the current time
