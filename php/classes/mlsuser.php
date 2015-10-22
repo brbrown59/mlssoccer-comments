@@ -34,7 +34,7 @@ class MlsUser {
 	 * @param string $newUsername new value of username
 	 * @throws InvalidArgumentException if data types are not valid
 	 * @throws RangeException if data values are out of bounds (strings that are too long, or negative integers)
-	 * @throws Exception if another exception is thrown
+	 * @throws Exception if some other exception is thrown
 	 **/
 	public function __construct($newUserId, $newAvatar, $newUsername){
 		try{

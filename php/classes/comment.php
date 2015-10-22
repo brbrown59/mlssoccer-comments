@@ -72,4 +72,5 @@ class Comment{
 		//convert the ID to an integer and store
 		$this->commentId = intval($newCommentId);
 	}
+
 }
