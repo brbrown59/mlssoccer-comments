@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(dirname(__DIR__)) . "/lib/php/date-utils.php");
+require_once(dirname(dirname(__DIR__)) . "/lib/validate-date.php");
 
 /**
  * A comment on MLSsoccer.com
@@ -36,4 +36,37 @@ class Comment{
 	 * @var string $text
 	 **/
 	private $text;
+
+	/**
+	 * accessor method for the comment Id
+	 * @return mixed value of comment Id
+	 */
+	public function getCommentId(){
+		return($this->commentId);
+	}
+
+	/**
+	 * mutator method for the comment Id
+	 * @params mixed $newCommentId value of the comment Id
+	 * @throws InvalidArgumentException if $newCommentId is not an integer
+	 * @throws RangeException if $newCommentId is not positive
+	 */
+	public function setCommentId($newCommentId){
+		//base case; the argument is null, this is a new comment with no ID in mySQL (yet)
+		if($newCommentId === null){
+			$this->commentId = null;
+			return;
+		}
+		//verifty that the comment ID is a valid integer
+		$newCommentId = filter_var($newCommentId, FILTER_VALIDATE_INT);
+		if ($newCommentId === false){
+			throw(new InvalidArgumentException("Comment ID is not a valid integer"));
+		}
+		//verify that the comment ID is positive
+		if ($newCommentId <= 0){
+			throw(new RangeException("Comment ID is not positive"));
+		}
+		//convert the ID to an integer and store
+		$this->commentId = intval($newCommentId);
+	}
 }
