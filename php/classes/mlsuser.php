@@ -27,6 +27,29 @@ class MlsUser {
 	private $username;
 
 	/**
+	 * constructor for the MlsUser class
+	 *
+	 * @param mixed $newUserId value of user ID
+	 * @param string $newAvatar new value of avatar, as a URL
+	 * @param string $newUsername new value of username
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings that are too long, or negative integers)
+	 * @throws Exception if another exception is thrown
+	 **/
+	public function __construct($newUserId, $newAvatar, $newUsername){
+		try{
+			$this->setUserId($newUserId);
+			$this->setAvatar($newAvatar);
+			$this->setUsername($newUsername);
+		} catch(InvalidArgumentException $invalidArgument){
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch(RangeException $range){
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch(Exception $exception){
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+	/**
 	 * accessor method for userId
 	 *
 	 * @return mixed value of user Id

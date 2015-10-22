@@ -57,15 +57,18 @@ class Comment{
 			$this->commentId = null;
 			return;
 		}
-		//verifty that the comment ID is a valid integer
+
+		//verify that the comment ID is a valid integer
 		$newCommentId = filter_var($newCommentId, FILTER_VALIDATE_INT);
 		if ($newCommentId === false){
 			throw(new InvalidArgumentException("Comment ID is not a valid integer"));
 		}
+
 		//verify that the comment ID is positive
 		if ($newCommentId <= 0){
 			throw(new RangeException("Comment ID is not positive"));
 		}
+
 		//convert the ID to an integer and store
 		$this->commentId = intval($newCommentId);
 	}
