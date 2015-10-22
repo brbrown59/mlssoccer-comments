@@ -39,6 +39,7 @@ class Comment{
 
 	/**
 	 * accessor method for the comment Id
+	 *
 	 * @return mixed value of comment Id
 	 */
 	public function getCommentId(){
@@ -47,6 +48,7 @@ class Comment{
 
 	/**
 	 * mutator method for the comment Id
+	 *
 	 * @params mixed $newCommentId value of the comment Id
 	 * @throws InvalidArgumentException if $newCommentId is not an integer
 	 * @throws RangeException if $newCommentId is not positive
@@ -73,4 +75,63 @@ class Comment{
 		$this->commentId = intval($newCommentId);
 	}
 
+	/**
+	 * accessor method for the article ID
+	 *
+	 * @return int value of article ID
+	 **/
+	public function getArticleId(){
+		return($this->getArticleId());
+	}
+
+	/**
+	 * mutator method for the article ID
+	 *
+	 * @param int $newArticleId new value of Article Id
+	 * @throws InvalidArgumentException if $newArticleId is not an integer
+	 * @throws RangeException if $newArticleId is not positive
+	 */
+	public function setArticleId($newArticleId){
+		//verify that the ID is valid
+		$newArticleId = filter_var($newArticleId, FILTER_VALIDATE_INT);
+		if ($newArticleId === false){
+			throw(new InvalidArgumentException("Article ID is not a valid integer"));
+		}
+		//verify that the ID is positive
+		if ($newArticleId <= 0){
+			throw(new RangeException("Article ID is not positive"));
+		}
+		//convert the Id to an integer and store
+		$this->articleId = intval($newArticleId);
+	}
+
+	/**
+	 * accessor method for the user ID
+	 *
+	 * @return int value of user ID
+	 **/
+	public function getUserId(){
+		return($this->getUserId());
+	}
+
+	/**
+	 * mutator method for the user ID
+	 *
+	 * @param int $newArticleId new value of user Id
+	 * @throws InvalidArgumentException if $newUserId is not an integer
+	 * @throws RangeException if $newUserId is not positive
+	 */
+	public function setUserId($newUserId){
+		//verify that the ID is valid
+		$newUserId = filter_var($newUserId, FILTER_VALIDATE_INT);
+		if ($newUserId === false){
+			throw(new InvalidArgumentException("User ID is not a valid integer"));
+		}
+		//verify that the ID is positive
+		if ($newUserId <= 0){
+			throw(new RangeException("User ID is not positive"));
+		}
+		//convert the Id to an integer and store
+		$this->userId = intval($newUserId);
+	}
 }
