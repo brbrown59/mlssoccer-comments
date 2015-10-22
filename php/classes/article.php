@@ -8,7 +8,6 @@
  *
  * @author Bradley Brown <tall.white.ninja@gmail.com>
  **/
-
 class Article{
 	/**
 	 * id for the article; this is the primary key
