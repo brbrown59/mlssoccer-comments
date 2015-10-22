@@ -170,4 +170,37 @@ class Comment{
 		}
 		$this->time = $newTime;
 	}
+
+	/**
+	 * accessor method for the comment text
+	 *
+	 * @return string value of comment text
+	 **/
+	public function getText(){
+		return($this->text);
+	}
+
+	/**
+	 * mutator method for the comment text
+	 *
+	 * @param string $newText new value of the comment text
+	 * @throws InvalidArgumentException if $newText is not a string or insecure
+	 * @throws RangeException if $newText is greater than 512 characters
+	 */
+	public function setText($newText){
+		//verify that new text is secure
+		$newText = trim($newText);
+		$newText = filter_var($newText, FILTER_SANITIZE_STRING);
+		//reject and throw exeception if the above failed
+		//empty case is okay
+		if(empty($newText) === true){
+			throw(new InvalidArgumentException("Comment text is empty or insecure"));
+		}
+		//verify that the article text will fit in the database; throw exeption if it does not
+		if(strlen($newText) > 512){
+			throw(new RangeException("Comment text is too large"));
+		}
+		//store the new username
+		$this->text = $newText;
+	}
 }

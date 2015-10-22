@@ -145,7 +145,7 @@ class Article{
 	 * @throws RangeException if $newText is larger than 65300 characters
 	 **/
 	public function setText($newText){
-		//verify that new author is secure
+		//verify that new text is secure
 		$newText = trim($newText);
 		$newText = filter_var($newText, FILTER_SANITIZE_STRING);
 		//reject and throw exeception if the above failed
