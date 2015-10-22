@@ -49,7 +49,7 @@ class Comment{
 	/**
 	 * mutator method for the comment Id
 	 *
-	 * @params mixed $newCommentId value of the comment Id
+	 * @param mixed $newCommentId value of the comment Id
 	 * @throws InvalidArgumentException if $newCommentId is not an integer
 	 * @throws RangeException if $newCommentId is not positive
 	 */
@@ -117,7 +117,7 @@ class Comment{
 	/**
 	 * mutator method for the user ID
 	 *
-	 * @param int $newArticleId new value of user Id
+	 * @param int $newUserId new value of User ID
 	 * @throws InvalidArgumentException if $newUserId is not an integer
 	 * @throws RangeException if $newUserId is not positive
 	 */
@@ -134,4 +134,17 @@ class Comment{
 		//convert the Id to an integer and store
 		$this->userId = intval($newUserId);
 	}
+
+	/**
+	 * accessor method for the comment time
+	 *
+	 * @return DateTime value of comment time
+	 */
+	public function getTime(){
+		return($this->time);
+	}
+
+	/**
+	 *
+	 **/
 }
