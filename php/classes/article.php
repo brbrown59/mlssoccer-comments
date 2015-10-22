@@ -31,6 +31,34 @@ class Article{
 	private $title;
 
 	/**
+	 * constructor method for an Article
+	 *
+	 * @param mixed $newArticleId value of article ID
+	 * @param string $newAuthor value of the author
+	 * @param string $newText value of the article text
+	 * @param string $newTitle value of the title
+	 * @throws InvalidArgumentException if data types are not valid
+	 * @throws RangeException if data values are out of bounds (strings that are too long, or negative integers)
+	 * @throws Exception if another exception is thrown
+	 **/
+	public function __construct($newArticleId, $newAuthor, $newText, $newTitle){
+		//call the mutators for the given parameters
+		try{
+			$this->setArticleId($newArticleId);
+			$this->setAuthor($newAuthor);
+			$this->setText($newText);
+			$this->setTitle($newTitle);
+			//catch any exceptions thrown by mutators, including the generic exception
+		} catch(InvalidArgumentException $invalidArgument){
+			throw(new InvalidArgumentException ($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch (RangeException $range){
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch (Exception $exception){
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
+	/**
 	 * accessor method for the articleId
 	 *
 	 * @return mixed value of article Id

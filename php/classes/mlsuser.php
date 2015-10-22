@@ -38,9 +38,11 @@ class MlsUser {
 	 **/
 	public function __construct($newUserId, $newAvatar, $newUsername){
 		try{
+			//call the class's mutators with the given parameters
 			$this->setUserId($newUserId);
 			$this->setAvatar($newAvatar);
 			$this->setUsername($newUsername);
+			//rethrow any caught exceptions to the caller, including the generic exception
 		} catch(InvalidArgumentException $invalidArgument){
 			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 		} catch(RangeException $range){
