@@ -200,5 +200,22 @@ class MlsUser {
 
 	/**
 	 * updates this user in mySQL
-	 */
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException if mySQL-related error occurs
+	 **/
+	public function update(PDO $pdo){
+		//check for null user ID: can't update user that doesn't exist
+		if($this->userId === null){
+			throw(new PDOException("Cannot update a user that does not exist"));
+		}
+
+		//create the query template
+		$query = "UPDATE mlsUser SET username = :username, avatar = :avatar WHERE userId = :userId";
+		$statement = $pdo->prepare($query);
+
+		//feed values into the template
+		$parameters = array("username" => $this->username, "avatar" => $this->avatar);
+		$statement->execute($parameters);
+	}
 }
