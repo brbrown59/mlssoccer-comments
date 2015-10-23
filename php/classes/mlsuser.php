@@ -163,7 +163,7 @@ class MlsUser {
 	public function insert(PDO $pdo){
 		//if the user is already in the database, don't add it
 		if ($this->userId !== null){
-			throw(new PDOException("not a new user"));
+			throw(new PDOException("Not a new user"));
 		}
 		//create query template
 		$query = "INSERT INTO mlsUser(userId, username, avatar) VALUES(:userId, :username, :avatar)";
@@ -176,4 +176,29 @@ class MlsUser {
 		//retrieve the user's primary key as assigned by mySQL
 		$this->userId = intval($pdo->lastInsertId());
 	}
+
+	/**
+	 * deletes a user from the database
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException if mySQL-related error occurs
+	 **/
+	public function delete(PDO $pdo){
+		//don't delete a user that doesn't exist; check for a null userID
+		if($this->userId === null){
+			throw(new PDOException("Cannot delete a user that doesn't exist"));
+		}
+
+		//create query template
+		$query = "DELETE FROM mlsUser WHERE userId = :userId";
+		$statement = $pdo->prepare($query);
+
+		//feed values into the template
+		$parameters = array("userId" => $this->userId);
+		$statement->execute($parameters);
+	}
+
+	/**
+	 * updates this user in mySQL
+	 */
 }
