@@ -153,4 +153,27 @@ class MlsUser {
 		//store the new username
 		$this->username = $newUsername;
 	}
+
+	/**
+	 * inserts this user into the database
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException if mySQL-related error occurs
+	 **/
+	public function insert(PDO $pdo){
+		//if the user is already in the database, don't add it
+		if ($this->userId !== null){
+			throw(new PDOException("not a new user"));
+		}
+		//create query template
+		$query = "INSERT INTO mlsUser(userId, username, avatar) VALUES(:userId, :username, :avatar)";
+		$statement = $pdo->prepare($query);
+
+		//feed values into the template
+		$parameters = array("userId" => $this->userId, "username" => $this->username, "avatar" => $this->avatar);
+		$statement->execute($parameters);
+
+		//retrieve the user's primary key as assigned by mySQL
+		$this->userId = intval($pdo->lastInsertId());
+	}
 }
