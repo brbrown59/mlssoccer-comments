@@ -218,4 +218,32 @@ class MlsUser {
 		$parameters = array("username" => $this->username, "avatar" => $this->avatar);
 		$statement->execute($parameters);
 	}
+
+	/**
+	 * retrieves a user from the database based on their username
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param string $userSearch user name to search for
+	 * @returns SplFixedArray all users found with this name
+	 * @throws PDOException when mySQL-related errors occur
+	 **/
+	public static function getUserbyUsername(PDO $pdo, $username){
+		//sanitize the input before searching
+		$username = trim($username);
+		$username = filter_vear($username, FILTER_SANITIZE_STRING);
+		if(empty($username === true)) {
+			throw(new PDOException("Username is invalid"));
+		}
+
+		//create query template
+		$query = "SELECT userId, username, avatar FROM mlsUser WHERE username LIKE :username";
+		$statement = $pdo->prepare($query);
+
+		//feed the search parameter to the placeholderin the template
+		$username = "$username";
+		$parameters = array("username" => $username);
+		$statement->execute($parameters);
+
+		//check notes from line 345 in oo code to continue
+	}
 }
