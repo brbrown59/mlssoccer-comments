@@ -223,14 +223,14 @@ class MlsUser {
 	 * retrieves a user from the database based on their username
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @param string $userSearch user name to search for
+	 * @param string $username user name to search for
 	 * @returns SplFixedArray all users found with this name
 	 * @throws PDOException when mySQL-related errors occur
 	 **/
 	public static function getUserbyUsername(PDO $pdo, $username){
 		//sanitize the input before searching
 		$username = trim($username);
-		$username = filter_vear($username, FILTER_SANITIZE_STRING);
+		$username = filter_var($username, FILTER_SANITIZE_STRING);
 		if(empty($username === true)) {
 			throw(new PDOException("Username is invalid"));
 		}
@@ -239,11 +239,32 @@ class MlsUser {
 		$query = "SELECT userId, username, avatar FROM mlsUser WHERE username LIKE :username";
 		$statement = $pdo->prepare($query);
 
-		//feed the search parameter to the placeholderin the template
+		//feed the search parameter to the placeholder in the template
 		$username = "$username";
 		$parameters = array("username" => $username);
 		$statement->execute($parameters);
 
-		//check notes from line 345 in oo code to continue
+		//build an array of retrieved user profiles, as an SplFixedArray object
+		//size of the SplFixedArray object set to the number of rows retrieved by the query
+		$retrievedUsers = new SplFixedArray($statement->rowCount());
+
+		//set fetch mode to retrieve each row as an array indexed by column name
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+
+		//while rows can still be retrieved from the result
+		while($row = $statement->fetch() !== null) {
+			try{
+				//place the retrieved row into a new MlsUser object, and place that object into the array of retrieved users
+				$user = new MlsUser($row["userId"], $row["avatar"], $row["username"]);
+				$retrievedUsers[$retrievedUsers->key()] = $user;
+				//advance the index in the SplFixedArray
+				$retrievedUsers->next();
+				//if an exception occurred, rethrow it
+			}catch (Exception $exception){
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		//return the SplFixedArray of users
+		return($retrievedUsers);
 	}
 }
